@@ -1,3 +1,5 @@
+function ticTacToe()
+
 clear all;close all;clc;
 
 % Initialize everything
@@ -12,7 +14,7 @@ box = struct('boxNumber',[1 2 3 4 5 6 7 8 9],'xMin',[0 0 0 3 3 3 6 6 6],...
 % Begin game
 while(totalClicks < 9)
     
-    [x,y,button] = ginput(1);   
+    [x,y,button] = ginput(1);
     if button==1
         boxNum = findBox(x,y,box);
         if user == 0
@@ -24,13 +26,19 @@ while(totalClicks < 9)
     
     userWinner = checkWinner(box,userWinner);
     if userWinner ~= inf
-        msgbox('Winner!');
+        msg = msgbox('Winner!');
         break;
     end
     
     if totalClicks == 9
-        msgbox('Tie!');
+        msg = msgbox('Tie!');
         break;
     end
     
+end
+
+pause(2);
+close all;
+delete(msg);
+
 end

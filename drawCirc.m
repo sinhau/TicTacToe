@@ -1,7 +1,9 @@
 function [user,box,totalClicks] = drawCirc(boxNum,box,user,totalClicks)
 
 if box.user(boxNum) ~= inf
-   msgbox('Click an empty box!');
+   msg = msgbox('Click an empty box!');
+   pause(1);
+   delete(msg);
    return;
 end
 
