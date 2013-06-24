@@ -1,7 +1,14 @@
-function user = drawCirc(boxNum,box,user)
+function [user,box,totalClicks] = drawCirc(boxNum,box,user,totalClicks)
+
+if box.user(boxNum) ~= inf
+   msgbox('Click an empty box!');
+   return;
+end
 
 S = 2500;
 scatter(box.xMin(boxNum)+1.5,box.yMin(boxNum)+1.5,S,'o','b');
+box.user(boxNum) = user;
+totalClicks = totalClicks + 1;
 
 if user == 1
     user = 0;
